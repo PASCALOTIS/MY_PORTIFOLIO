@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Projects - Pascal Otieno</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: 'Arial', sans-serif; background: #0a0a0a; color: #ccc; }
+    .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+    header { position: fixed; top: 0; width: 100%; background: rgba(10, 10, 10, 0.95); border-bottom: 1px solid #333; z-index: 1000; }
+    nav { display: flex; justify-content: space-between; align-items: center; padding: 1rem 0; }
+    .logo { font-size: 1.5rem; font-weight: bold; color: #00ff88; text-decoration: none; }
+    .nav-links { display: flex; list-style: none; gap: 2rem; }
+    .nav-links a { text-decoration: none; color: #fff; font-weight: 500; position: relative; }
+    .nav-links a:hover { color: #00ff88; }
+    .nav-links a::after { content: ''; position: absolute; bottom: -5px; left: 0; width: 0; height: 2px; background: #00ff88; transition: width 0.3s ease; }
+    .nav-links a:hover::after { width: 100%; }
+
+    .page-header { padding: 150px 0 80px; text-align: center; background: #111; }
+    .page-header h1 { font-size: 3rem; color: #00ff88; }
+
+    .projects-section { padding: 60px 0; background: #0a0a0a; }
+    .projects-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem; }
+    .project-card { background: #1a1a1a; border: 1px solid #333; padding: 1.5rem; border-radius: 8px; transition: transform 0.3s ease; }
+    .project-card:hover { transform: translateY(-5px); border-color: #00ff88; }
+    .project-card h3 { color: #00ff88; margin-bottom: 0.5rem; }
+    .project-card p { font-size: 0.95rem; color: #ccc; line-height: 1.6; }
+    .project-card a { display: inline-block; margin-top: 1rem; color: #00ff88; text-decoration: none; font-weight: 500; }
+    .project-card a:hover { text-decoration: underline; }
+
+    footer { background: #0a0a0a; color: #ccc; text-align: center; padding: 3rem 0; border-top: 1px solid #333; }
+    .social-links { display: flex; justify-content: center; gap: 2rem; margin-bottom: 2rem; }
+    .social-links a i { font-size: 1.5rem; color: #ccc; transition: color 0.3s ease; }
+    .social-links a:hover i { color: #00ff88; }
+  </style>
+</head>
+<body>
+  <header>
+    <nav class="container">
+      <a href="index.html" class="logo">Pascal Otieno</a>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="projects.html">Projects</a></li>
+        <li><a href="blog.html">Blogs</a></li>
+        <li><a href="photography.html">Photography</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section class="page-header">
+      <div class="container">
+        <h1>Network Engineering Projects</h1>
+      </div>
+    </section>
+
+    <section class="projects-section">
+      <div class="container">
+        <div class="projects-grid">
+          <div class="project-card">
+            <h3>Campus SD-WAN Deployment</h3>
+            <p>Designed and implemented an SD-WAN architecture across multiple university campuses for optimized cloud access and traffic segmentation.</p>
+            <a href="#">View Details</a>
+          </div>
+          <div class="project-card">
+            <h3>GRE over IPsec VPN</h3>
+            <p>Developed a secure GRE tunnel encapsulated in IPsec to facilitate encrypted communication between two branch routers over the public internet.</p>
+            <a href="#">View Details</a>
+          </div>
+          <div class="project-card">
+            <h3>Zero Trust Architecture Lab</h3>
+            <p>Simulated a Zero Trust network environment using Palo Alto firewalls and Azure AD, enhancing endpoint protection and microsegmentation.</p>
+            <a href="#">View Details</a>
+          </div>
+          <div class="project-card">
+            <h3>Enterprise Network Automation</h3>
+            <p>Automated configuration and compliance checks across Cisco routers using Python, Netmiko, and Ansible.</p>
+            <a href="#">View Details</a>
+          </div>
+          <div class="project-card">
+            <h3>Data Center Redundancy Project</h3>
+            <p>Built a dual data center topology with dynamic routing (OSPF + BGP), load balancing, and failover tested via simulated outages.</p>
+            <a href="#">View Details</a>
+          </div>
+          <div class="project-card">
+            <h3>Cloud Connectivity via VPN Gateway</h3>
+            <p>Integrated on-prem Cisco network with Azure Virtual WAN using IPsec/IKEv2 VPN and routing through Azure Route Tables.</p>
+            <a href="#">View Details</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <div class="social-links">
+        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+        <a href="#"><i class="fab fa-github"></i></a>
+        <a href="#"><i class="fab fa-twitter"></i></a>
+        <a href="mailto:your@email.com"><i class="fas fa-envelope"></i></a>
+      </div>
+      <p>&copy; 2025 Pascal Otieno. All rights reserved.</p>
+    </div>
+  </footer>
+</body>
+</html>

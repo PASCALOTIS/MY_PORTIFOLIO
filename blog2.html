@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mastering BGP for Scalable Routing | June 2025</title>
+    <title>Mastering BGP for Scalable Routing | Professional Network Engineering</title>
     <style>
         * {
             margin: 0;
@@ -13,8 +13,8 @@
 
         body {
             font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            background: linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 50%, #16213e 100%);
-            color: #ffffff;
+            background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+            color: #1a202c;
             line-height: 1.6;
             overflow-x: hidden;
         }
@@ -25,169 +25,146 @@
             padding: 0 20px;
         }
 
-        /* Animated background network */
-        .bg-network {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            pointer-events: none;
-            z-index: -1;
-            opacity: 0.1;
-        }
-
-        .network-line {
-            position: absolute;
-            background: linear-gradient(90deg, transparent, #00d4ff, transparent);
-            height: 1px;
-            animation: pulse-line 3s infinite;
-        }
-
-        .network-line:nth-child(1) {
-            top: 20%;
-            left: 0;
-            width: 100%;
-            animation-delay: 0s;
-        }
-
-        .network-line:nth-child(2) {
-            top: 50%;
-            left: 0;
-            width: 100%;
-            animation-delay: 1s;
-        }
-
-        .network-line:nth-child(3) {
-            top: 80%;
-            left: 0;
-            width: 100%;
-            animation-delay: 2s;
-        }
-
-        @keyframes pulse-line {
-            0%, 100% { opacity: 0.1; }
-            50% { opacity: 0.3; }
-        }
-
         /* Header */
         header {
-            padding: 3rem 0;
-            position: relative;
-            text-align: center;
-        }
-
-        .date-badge {
-            display: inline-block;
-            background: rgba(0, 212, 255, 0.2);
-            border: 1px solid rgba(0, 212, 255, 0.4);
-            padding: 0.5rem 1.5rem;
-            border-radius: 25px;
-            font-size: 0.9rem;
-            margin-bottom: 1.5rem;
-            backdrop-filter: blur(10px);
-            animation: glow-blue 2s ease-in-out infinite alternate;
-        }
-
-        @keyframes glow-blue {
-            from { box-shadow: 0 0 10px rgba(0, 212, 255, 0.3); }
-            to { box-shadow: 0 0 25px rgba(0, 212, 255, 0.6); }
-        }
-
-        h1 {
-            font-size: clamp(2.5rem, 5vw, 4.5rem);
-            font-weight: 900;
-            margin-bottom: 1rem;
-            background: linear-gradient(135deg, #ffffff, #00d4ff, #0ea5e9);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            text-shadow: 0 0 30px rgba(0, 212, 255, 0.3);
-        }
-
-        .subtitle {
-            font-size: 1.3rem;
-            color: rgba(255, 255, 255, 0.85);
-            max-width: 700px;
-            margin: 0 auto;
-            line-height: 1.6;
-        }
-
-        /* Main content */
-        main {
+            background: linear-gradient(135deg, #2d3748 0%, #1a202c 100%);
+            color: white;
             padding: 4rem 0;
-        }
-
-        .content-layout {
-            display: grid;
-            grid-template-columns: 1fr 320px;
-            gap: 4rem;
-            margin-bottom: 4rem;
-        }
-
-        .article-content {
-            background: rgba(255, 255, 255, 0.03);
-            border-radius: 20px;
-            padding: 3rem;
-            backdrop-filter: blur(20px);
-            border: 1px solid rgba(255, 255, 255, 0.08);
-            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.4);
             position: relative;
+            overflow: hidden;
         }
 
-        .article-content::before {
+        header::before {
             content: '';
             position: absolute;
             top: 0;
             left: 0;
             right: 0;
-            height: 2px;
-            background: linear-gradient(90deg, transparent, #00d4ff, transparent);
-            border-radius: 20px 20px 0 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grid" width="10" height="10" patternUnits="userSpaceOnUse"><path d="M 10 0 L 0 0 0 10" fill="none" stroke="%23ffffff" stroke-width="0.5" opacity="0.1"/></pattern></defs><rect width="100" height="100" fill="url(%23grid)"/></svg>');
+            opacity: 0.1;
+        }
+
+        .header-content {
+            position: relative;
+            z-index: 1;
+            text-align: center;
+        }
+
+        .date-badge {
+            display: inline-block;
+            background: rgba(66, 153, 225, 0.2);
+            border: 1px solid rgba(66, 153, 225, 0.4);
+            color: #4299e1;
+            padding: 0.5rem 1.5rem;
+            border-radius: 25px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            margin-bottom: 1.5rem;
+            backdrop-filter: blur(10px);
+        }
+
+        h1 {
+            font-size: clamp(2rem, 4vw, 3.5rem);
+            font-weight: 700;
+            margin-bottom: 1rem;
+            letter-spacing: -0.025em;
+        }
+
+        .subtitle {
+            font-size: clamp(1rem, 2vw, 1.25rem);
+            color: rgba(255, 255, 255, 0.8);
+            max-width: 600px;
+            margin: 0 auto;
+            font-weight: 300;
+        }
+
+        /* Navigation */
+        .nav-tabs {
+            background: white;
+            border-bottom: 1px solid #e2e8f0;
+            padding: 0;
+            margin-bottom: 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+        }
+
+        .nav-tabs .container {
+            display: flex;
+            overflow-x: auto;
+            scrollbar-width: none;
+            -ms-overflow-style: none;
+        }
+
+        .nav-tabs .container::-webkit-scrollbar {
+            display: none;
+        }
+
+        .nav-tab {
+            flex: 0 0 auto;
+            padding: 1rem 1.5rem;
+            text-decoration: none;
+            color: #64748b;
+            font-weight: 500;
+            border-bottom: 2px solid transparent;
+            transition: all 0.2s ease;
+            white-space: nowrap;
+        }
+
+        .nav-tab:hover,
+        .nav-tab.active {
+            color: #4299e1;
+            border-bottom-color: #4299e1;
+        }
+
+        /* Main content */
+        main {
+            padding: 3rem 0;
+        }
+
+        .content-layout {
+            display: grid;
+            grid-template-columns: 1fr 300px;
+            gap: 3rem;
+            margin-bottom: 3rem;
+        }
+
+        .article-content {
+            background: white;
+            border-radius: 12px;
+            padding: 2.5rem;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1), 0 1px 2px rgba(0,0,0,0.06);
+            border: 1px solid #e2e8f0;
         }
 
         .sidebar {
             display: flex;
             flex-direction: column;
-            gap: 2rem;
+            gap: 1.5rem;
         }
 
         .sidebar-card {
-            background: rgba(255, 255, 255, 0.04);
-            border-radius: 15px;
-            padding: 2rem;
-            backdrop-filter: blur(15px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            transition: all 0.3s ease;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .sidebar-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(0, 212, 255, 0.1), transparent);
-            transition: left 0.5s ease;
-        }
-
-        .sidebar-card:hover::before {
-            left: 100%;
+            background: white;
+            border-radius: 12px;
+            padding: 1.5rem;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1), 0 1px 2px rgba(0,0,0,0.06);
+            border: 1px solid #e2e8f0;
+            transition: all 0.2s ease;
         }
 
         .sidebar-card:hover {
-            transform: translateY(-5px);
-            border-color: rgba(0, 212, 255, 0.3);
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1), 0 2px 4px rgba(0,0,0,0.06);
         }
 
         .sidebar-card h3 {
-            color: #00d4ff;
+            color: #2d3748;
             margin-bottom: 1rem;
-            font-size: 1.2rem;
+            font-size: 1.1rem;
             font-weight: 600;
+            padding-bottom: 0.5rem;
+            border-bottom: 1px solid #e2e8f0;
         }
 
         /* Article sections */
@@ -195,47 +172,52 @@
             margin-bottom: 3rem;
         }
 
-        .section h2 {
-            font-size: 2.2rem;
-            margin-bottom: 1.5rem;
-            color: #ffffff;
-            position: relative;
-            padding-left: 1.5rem;
+        .section:last-child {
+            margin-bottom: 0;
         }
 
-        .section h2::before {
-            content: '';
-            position: absolute;
-            left: 0;
-            top: 0;
-            height: 100%;
-            width: 4px;
-            background: linear-gradient(135deg, #00d4ff, #0ea5e9);
-            border-radius: 2px;
+        .section h2 {
+            font-size: 1.875rem;
+            margin-bottom: 1.5rem;
+            color: #2d3748;
+            font-weight: 600;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid #e2e8f0;
         }
 
         .section h3 {
             font-size: 1.5rem;
             margin-bottom: 1rem;
-            color: #00d4ff;
+            color: #4299e1;
             margin-top: 2rem;
+            font-weight: 600;
         }
 
         .section p {
-            font-size: 1.1rem;
-            color: rgba(255, 255, 255, 0.9);
+            font-size: 1rem;
+            color: #4a5568;
             margin-bottom: 1.5rem;
-            line-height: 1.8;
+            line-height: 1.7;
+        }
+
+        .section ul, .section ol {
+            margin-left: 1.5rem;
+            margin-bottom: 1.5rem;
+            color: #4a5568;
+        }
+
+        .section li {
+            margin-bottom: 0.5rem;
         }
 
         /* Code blocks */
         .code-block {
-            background: rgba(0, 0, 0, 0.6);
-            border: 1px solid rgba(0, 212, 255, 0.3);
-            border-radius: 10px;
+            background: #1a202c;
+            border: 1px solid #2d3748;
+            border-radius: 8px;
             padding: 1.5rem;
-            margin: 2rem 0;
-            font-family: 'Fira Code', monospace;
+            margin: 1.5rem 0;
+            font-family: 'Fira Code', 'Consolas', monospace;
             font-size: 0.9rem;
             overflow-x: auto;
             position: relative;
@@ -245,33 +227,34 @@
             content: 'BGP Configuration';
             position: absolute;
             top: -1px;
-            left: 20px;
-            background: linear-gradient(135deg, #00d4ff, #0ea5e9);
+            left: 15px;
+            background: #4299e1;
             color: white;
-            padding: 0.3rem 1rem;
-            border-radius: 0 0 8px 8px;
-            font-size: 0.8rem;
-            font-weight: 600;
+            padding: 0.25rem 0.75rem;
+            border-radius: 0 0 6px 6px;
+            font-size: 0.75rem;
+            font-weight: 500;
         }
 
         .code-block pre {
             color: #e2e8f0;
-            margin-top: 1rem;
+            margin-top: 0.5rem;
+            white-space: pre-wrap;
+            word-wrap: break-word;
         }
 
-        .code-keyword { color: #00d4ff; }
-        .code-string { color: #10b981; }
-        .code-number { color: #f59e0b; }
-        .code-comment { color: #64748b; }
+        .code-keyword { color: #4299e1; }
+        .code-string { color: #48bb78; }
+        .code-number { color: #ed8936; }
+        .code-comment { color: #718096; }
 
         /* BGP visualization */
         .bgp-demo {
-            background: rgba(0, 0, 0, 0.3);
-            border-radius: 15px;
+            background: #f7fafc;
+            border: 1px solid #e2e8f0;
+            border-radius: 8px;
             padding: 2rem;
             margin: 2rem 0;
-            border: 1px solid rgba(0, 212, 255, 0.2);
-            backdrop-filter: blur(10px);
         }
 
         .bgp-network {
@@ -279,191 +262,214 @@
             justify-content: space-between;
             align-items: center;
             flex-wrap: wrap;
-            gap: 2rem;
-            margin: 2rem 0;
+            gap: 1rem;
+            margin: 1.5rem 0;
         }
 
         .bgp-as {
-            background: linear-gradient(135deg, #1e40af, #3b82f6);
-            border-radius: 12px;
-            padding: 1.5rem;
+            background: linear-gradient(135deg, #4299e1, #3182ce);
+            color: white;
+            border-radius: 8px;
+            padding: 1rem;
             text-align: center;
             min-width: 120px;
             position: relative;
             cursor: pointer;
-            transition: all 0.3s ease;
+            transition: all 0.2s ease;
+            flex: 1;
+            max-width: 200px;
         }
 
         .bgp-as:hover {
-            transform: scale(1.05);
-            box-shadow: 0 10px 30px rgba(59, 130, 246, 0.4);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
         }
 
         .bgp-as::after {
             content: '';
             position: absolute;
-            right: -30px;
+            right: -15px;
             top: 50%;
             transform: translateY(-50%);
-            width: 60px;
+            width: 30px;
             height: 2px;
-            background: linear-gradient(90deg, #3b82f6, #00d4ff);
-            animation: data-flow 2s infinite;
+            background: #4299e1;
         }
 
         .bgp-as:last-child::after {
             display: none;
         }
 
-        @keyframes data-flow {
-            0% { opacity: 0.3; }
-            50% { opacity: 1; }
-            100% { opacity: 0.3; }
-        }
-
         .as-number {
-            font-weight: bold;
-            color: #00d4ff;
+            font-weight: 600;
             font-size: 1.1rem;
+            margin-bottom: 0.25rem;
         }
 
         .as-type {
-            font-size: 0.9rem;
-            color: rgba(255, 255, 255, 0.8);
-            margin-top: 0.5rem;
+            font-size: 0.875rem;
+            opacity: 0.9;
         }
 
-        /* Protocol comparison */
-        .protocol-comparison {
+        /* Cards and grids */
+        .card-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 1.5rem;
-            margin: 2rem 0;
+            margin: 1.5rem 0;
         }
 
-        .protocol-card {
-            background: rgba(255, 255, 255, 0.05);
-            border-radius: 12px;
+        .card {
+            background: white;
+            border: 1px solid #e2e8f0;
+            border-radius: 8px;
             padding: 1.5rem;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            text-align: center;
-            transition: all 0.3s ease;
+            transition: all 0.2s ease;
         }
 
-        .protocol-card:hover {
-            border-color: rgba(0, 212, 255, 0.4);
-            transform: translateY(-5px);
+        .card:hover {
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            transform: translateY(-2px);
         }
 
-        .protocol-card.featured {
-            border-color: #00d4ff;
-            background: rgba(0, 212, 255, 0.1);
+        .card.featured {
+            border-color: #4299e1;
+            background: #ebf8ff;
         }
 
-        .protocol-card h4 {
-            color: #00d4ff;
-            margin-bottom: 1rem;
-            font-size: 1.3rem;
-        }
-
-        /* Troubleshooting section */
-        .troubleshooting-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            margin: 2rem 0;
-        }
-
-        .trouble-card {
-            background: rgba(239, 68, 68, 0.1);
-            border: 1px solid rgba(239, 68, 68, 0.3);
-            border-radius: 12px;
-            padding: 1.5rem;
-            transition: all 0.3s ease;
-        }
-
-        .trouble-card:hover {
-            background: rgba(239, 68, 68, 0.15);
-            transform: translateY(-3px);
-        }
-
-        .trouble-card h4 {
-            color: #ef4444;
-            margin-bottom: 1rem;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-
-        .trouble-card .solution {
-            background: rgba(34, 197, 94, 0.1);
-            border-left: 3px solid #22c55e;
-            padding: 1rem;
-            margin-top: 1rem;
-            border-radius: 0 8px 8px 0;
-        }
-
-        .solution-label {
-            color: #22c55e;
-            font-weight: 600;
+        .card h4 {
+            color: #2d3748;
             margin-bottom: 0.5rem;
-        }
-
-        /* Interactive elements */
-        .interactive-toggle {
-            display: inline-block;
-            background: rgba(0, 212, 255, 0.2);
-            border: 1px solid rgba(0, 212, 255, 0.4);
-            padding: 0.5rem 1rem;
-            border-radius: 20px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            margin: 0.25rem;
-        }
-
-        .interactive-toggle:hover {
-            background: rgba(0, 212, 255, 0.3);
-            transform: scale(1.05);
-        }
-
-        .interactive-toggle.active {
-            background: rgba(0, 212, 255, 0.5);
-            color: #000;
-        }
-
-        /* Call to action */
-        .cta-section {
-            background: linear-gradient(135deg, rgba(0, 212, 255, 0.2), rgba(14, 165, 233, 0.2));
-            border-radius: 20px;
-            padding: 3rem;
-            text-align: center;
-            margin: 3rem 0;
-            backdrop-filter: blur(20px);
-            border: 1px solid rgba(0, 212, 255, 0.3);
-        }
-
-        .cta-button {
-            display: inline-block;
-            background: linear-gradient(135deg, #00d4ff, #0ea5e9);
-            color: white;
-            padding: 1rem 2.5rem;
-            border-radius: 30px;
-            text-decoration: none;
+            font-size: 1.1rem;
             font-weight: 600;
-            transition: all 0.3s ease;
-            box-shadow: 0 10px 30px rgba(0, 212, 255, 0.3);
         }
 
-        .cta-button:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 15px 40px rgba(0, 212, 255, 0.5);
+        .card.featured h4 {
+            color: #4299e1;
+        }
+
+        .card p {
+            color: #4a5568;
+            margin-bottom: 0;
+            font-size: 0.9rem;
+        }
+
+        /* Alert boxes */
+        .alert {
+            padding: 1rem;
+            border-radius: 6px;
+            margin: 1.5rem 0;
+            border-left: 4px solid;
+        }
+
+        .alert-info {
+            background: #ebf8ff;
+            border-left-color: #4299e1;
+            color: #2b6cb0;
+        }
+
+        .alert-warning {
+            background: #fffbeb;
+            border-left-color: #ed8936;
+            color: #c05621;
+        }
+
+        .alert-success {
+            background: #f0fff4;
+            border-left-color: #48bb78;
+            color: #2f855a;
+        }
+
+        /* Tables */
+        .table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1.5rem 0;
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+        }
+
+        .table th,
+        .table td {
+            padding: 0.75rem;
+            text-align: left;
+            border-bottom: 1px solid #e2e8f0;
+        }
+
+        .table th {
+            background: #f7fafc;
+            font-weight: 600;
+            color: #2d3748;
+        }
+
+        .table tr:hover {
+            background: #f7fafc;
+        }
+
+        /* Buttons */
+        .btn {
+            display: inline-block;
+            padding: 0.75rem 1.5rem;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.2s ease;
+            border: none;
+            cursor: pointer;
+            font-size: 0.9rem;
+        }
+
+        .btn-primary {
+            background: #4299e1;
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: #3182ce;
+        }
+
+        .btn-secondary {
+            background: #e2e8f0;
+            color: #4a5568;
+        }
+
+        .btn-secondary:hover {
+            background: #cbd5e0;
         }
 
         /* Responsive design */
-        @media (max-width: 768px) {
+        @media (max-width: 1024px) {
             .content-layout {
                 grid-template-columns: 1fr;
                 gap: 2rem;
+            }
+            
+            .sidebar {
+                order: -1;
+            }
+            
+            .sidebar .sidebar-card {
+                display: none;
+            }
+            
+            .sidebar .sidebar-card:first-child {
+                display: block;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 0 15px;
+            }
+            
+            header {
+                padding: 2rem 0;
+            }
+            
+            .article-content {
+                padding: 1.5rem;
             }
             
             .bgp-network {
@@ -471,20 +477,48 @@
                 gap: 1rem;
             }
             
+            .bgp-as {
+                max-width: 100%;
+            }
+            
             .bgp-as::after {
                 display: none;
             }
             
+            .card-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .section h2 {
+                font-size: 1.5rem;
+            }
+            
+            .section h3 {
+                font-size: 1.25rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .nav-tab {
+                padding: 0.75rem 1rem;
+                font-size: 0.9rem;
+            }
+            
             .article-content {
-                padding: 2rem;
+                padding: 1rem;
+            }
+            
+            .code-block {
+                padding: 1rem;
+                font-size: 0.8rem;
             }
         }
 
         /* Animations */
         .fade-in {
             opacity: 0;
-            transform: translateY(30px);
-            animation: fadeInUp 0.8s ease forwards;
+            transform: translateY(20px);
+            animation: fadeInUp 0.6s ease forwards;
         }
 
         @keyframes fadeInUp {
@@ -493,242 +527,277 @@
                 transform: translateY(0);
             }
         }
+
+        /* Print styles */
+        @media print {
+            .nav-tabs,
+            .sidebar,
+            .btn {
+                display: none;
+            }
+            
+            .content-layout {
+                grid-template-columns: 1fr;
+            }
+            
+            .article-content {
+                box-shadow: none;
+                border: none;
+                padding: 0;
+            }
+            
+            .code-block {
+                background: #f8f9fa;
+                border: 1px solid #dee2e6;
+                color: #212529;
+            }
+        }
     </style>
 </head>
 <body>
-    <div class="bg-network">
-        <div class="network-line"></div>
-        <div class="network-line"></div>
-        <div class="network-line"></div>
-    </div>
-
     <header>
         <div class="container">
-            <div class="date-badge">June 2025</div>
-            <h1>Mastering BGP for Scalable Routing</h1>
-            <p class="subtitle">A deep dive into BGP configurations, troubleshooting, and why it's still the backbone of the Internet</p>
+            <div class="header-content">
+                <div class="date-badge">Network Engineering • June 2025</div>
+                <h1>Mastering BGP for Scalable Routing</h1>
+                <p class="subtitle">A comprehensive guide to BGP implementation, troubleshooting, and best practices for enterprise networks</p>
+            </div>
         </div>
     </header>
+
+    <nav class="nav-tabs">
+        <div class="container">
+            <a href="#fundamentals" class="nav-tab active">Fundamentals</a>
+            <a href="#configuration" class="nav-tab">Configuration</a>
+            <a href="#troubleshooting" class="nav-tab">Troubleshooting</a>
+            <a href="#security" class="nav-tab">Security</a>
+            <a href="#best-practices" class="nav-tab">Best Practices</a>
+        </div>
+    </nav>
 
     <main>
         <div class="container">
             <div class="content-layout">
                 <div class="article-content">
-                    <div class="section fade-in">
-                        <h2>The Internet's Routing Foundation</h2>
-                        <p>Border Gateway Protocol (BGP) remains the most critical protocol powering the modern Internet. Despite being over three decades old, BGP continues to evolve and adapt to the ever-changing landscape of global networking. As networks grow more complex and interconnected, understanding BGP becomes essential for any serious network engineer.</p>
-                        <p>BGP is more than just a routing protocol—it's the diplomatic language that allows autonomous systems to communicate, negotiate, and establish trust relationships. Every packet traversing the Internet relies on BGP decisions made by routers across thousands of networks worldwide.</p>
+                    <section id="fundamentals" class="section fade-in">
+                        <h2>BGP Fundamentals</h2>
+                        <p>Border Gateway Protocol (BGP) is the standardized exterior gateway protocol designed to exchange routing and reachability information between autonomous systems (AS) on the Internet. BGP is classified as a path vector protocol and makes routing decisions based on paths, network policies, and rule-sets configured by network administrators.</p>
                         
+                        <div class="alert alert-info">
+                            <strong>Key Concept:</strong> BGP is policy-based rather than purely technical, allowing network administrators to influence routing decisions based on business relationships and traffic engineering requirements.
+                        </div>
+
+                        <h3>BGP Network Topology</h3>
                         <div class="bgp-demo">
-                            <h3 style="text-align: center; margin-bottom: 2rem;">BGP Autonomous System Topology</h3>
                             <div class="bgp-network">
-                                <div class="bgp-as" data-as="65001">
+                                <div class="bgp-as">
                                     <div class="as-number">AS 65001</div>
-                                    <div class="as-type">ISP Tier 1</div>
+                                    <div class="as-type">Tier 1 ISP</div>
                                 </div>
-                                <div class="bgp-as" data-as="65002">
+                                <div class="bgp-as">
                                     <div class="as-number">AS 65002</div>
-                                    <div class="as-type">ISP Tier 2</div>
+                                    <div class="as-type">Regional ISP</div>
                                 </div>
-                                <div class="bgp-as" data-as="65003">
+                                <div class="bgp-as">
                                     <div class="as-number">AS 65003</div>
                                     <div class="as-type">Enterprise</div>
                                 </div>
                             </div>
-                            <p style="text-align: center; color: rgba(255,255,255,0.8); margin-top: 1rem;">Click on any AS to see routing information</p>
+                            <p style="text-align: center; color: #718096; font-size: 0.9rem;">BGP enables routing between different autonomous systems</p>
                         </div>
-                    </div>
 
-                    <div class="section fade-in">
-                        <h2>BGP Configuration Fundamentals</h2>
-                        <p>Configuring BGP requires understanding both the protocol mechanics and the business relationships between networks. Unlike interior gateway protocols, BGP considers policy, business relationships, and administrative preferences in its routing decisions.</p>
-                        
-                        <h3>Basic BGP Configuration</h3>
+                        <h3>Protocol Comparison</h3>
+                        <div class="card-grid">
+                            <div class="card featured">
+                                <h4>BGP-4</h4>
+                                <p>Path-vector protocol with policy-based routing, designed for inter-AS communication with infinite scalability and complex policy support.</p>
+                            </div>
+                            <div class="card">
+                                <h4>OSPF</h4>
+                                <p>Link-state protocol optimized for intra-AS routing with fast convergence but limited to smaller network domains.</p>
+                            </div>
+                            <div class="card">
+                                <h4>EIGRP</h4>
+                                <p>Advanced distance-vector protocol with sophisticated metrics but limited to Cisco environments.</p>
+                            </div>
+                        </div>
+                    </section>
+
+                    <section id="configuration" class="section fade-in">
+                        <h2>BGP Configuration</h2>
+                        <p>Proper BGP configuration requires understanding of both the protocol mechanics and the business relationships between networks. This section covers essential configuration patterns and best practices.</p>
+
+                        <h3>Basic BGP Setup</h3>
                         <div class="code-block">
                             <pre><code><span class="code-keyword">router bgp</span> <span class="code-number">65001</span>
  <span class="code-keyword">bgp router-id</span> <span class="code-string">192.168.1.1</span>
  <span class="code-keyword">bgp log-neighbor-changes</span>
+ <span class="code-keyword">bgp bestpath as-path multipath-relax</span>
  
  <span class="code-comment">! eBGP peer configuration</span>
  <span class="code-keyword">neighbor</span> <span class="code-string">203.0.113.1</span> <span class="code-keyword">remote-as</span> <span class="code-number">65002</span>
- <span class="code-keyword">neighbor</span> <span class="code-string">203.0.113.1</span> <span class="code-keyword">description</span> <span class="code-string">ISP-A-Primary</span>
+ <span class="code-keyword">neighbor</span> <span class="code-string">203.0.113.1</span> <span class="code-keyword">description</span> <span class="code-string">ISP-Primary-Link</span>
  <span class="code-keyword">neighbor</span> <span class="code-string">203.0.113.1</span> <span class="code-keyword">password</span> <span class="code-string">SecureBGP2025</span>
+ <span class="code-keyword">neighbor</span> <span class="code-string">203.0.113.1</span> <span class="code-keyword">send-community</span>
  
- <span class="code-comment">! Network advertisement</span>
- <span class="code-keyword">network</span> <span class="code-string">192.168.0.0</span> <span class="code-keyword">mask</span> <span class="code-string">255.255.0.0</span>
+ <span class="code-comment">! Address family configuration</span>
+ <span class="code-keyword">address-family ipv4</span>
+  <span class="code-keyword">network</span> <span class="code-string">192.168.0.0</span> <span class="code-keyword">mask</span> <span class="code-string">255.255.0.0</span>
+  <span class="code-keyword">neighbor</span> <span class="code-string">203.0.113.1</span> <span class="code-keyword">activate</span>
+  <span class="code-keyword">neighbor</span> <span class="code-string">203.0.113.1</span> <span class="code-keyword">prefix-list</span> <span class="code-string">OUT-PREFIXES</span> <span class="code-keyword">out</span>
+ <span class="code-keyword">exit-address-family</span></code></pre>
+                        </div>
+
+                        <h3>Configuration Parameters</h3>
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th>Parameter</th>
+                                    <th>Purpose</th>
+                                    <th>Default</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>bgp router-id</td>
+                                    <td>Unique identifier for BGP speaker</td>
+                                    <td>Highest loopback IP</td>
+                                </tr>
+                                <tr>
+                                    <td>bgp log-neighbor-changes</td>
+                                    <td>Log neighbor state changes</td>
+                                    <td>Disabled</td>
+                                </tr>
+                                <tr>
+                                    <td>send-community</td>
+                                    <td>Send community attributes</td>
+                                    <td>Disabled</td>
+                                </tr>
+                                <tr>
+                                    <td>next-hop-self</td>
+                                    <td>Set next-hop to self for iBGP</td>
+                                    <td>Disabled</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </section>
+
+                    <section id="troubleshooting" class="section fade-in">
+                        <h2>BGP Troubleshooting</h2>
+                        <p>Effective BGP troubleshooting requires systematic approaches and understanding of common failure modes. This section provides structured methodologies for diagnosing and resolving BGP issues.</p>
+
+                        <h3>Common Issues and Solutions</h3>
+                        <div class="card-grid">
+                            <div class="card">
+                                <h4>🔧 Neighbor Adjacency Failure</h4>
+                                <p><strong>Symptoms:</strong> Neighbors stuck in Active or Idle state</p>
+                                <div class="alert alert-warning">
+                                    <strong>Solution:</strong> Verify AS numbers, IP connectivity, and authentication. Use <code>show bgp summary</code> to check neighbor states.
+                                </div>
+                            </div>
+                            
+                            <div class="card">
+                                <h4>📡 Route Advertisement Issues</h4>
+                                <p><strong>Symptoms:</strong> Expected routes not appearing in BGP table</p>
+                                <div class="alert alert-success">
+                                    <strong>Solution:</strong> Check route-maps, prefix-lists, and network statements. Verify with <code>show bgp neighbors X.X.X.X advertised-routes</code>.
+                                </div>
+                            </div>
+                            
+                            <div class="card">
+                                <h4>🔄 Convergence Problems</h4>
+                                <p><strong>Symptoms:</strong> Slow convergence or routing instability</p>
+                                <div class="alert alert-info">
+                                    <strong>Solution:</strong> Implement route dampening, optimize timers, and review path selection criteria.
+                                </div>
+                            </div>
+                        </div>
+
+                        <h3>Essential Troubleshooting Commands</h3>
+                        <div class="code-block">
+                            <pre><code><span class="code-comment">! Basic BGP status</span>
+<span class="code-keyword">show bgp summary</span>
+<span class="code-keyword">show bgp neighbors</span>
+<span class="code-keyword">show bgp ipv4 unicast</span>
+
+<span class="code-comment">! Detailed neighbor information</span>
+<span class="code-keyword">show bgp neighbors 203.0.113.1</span>
+<span class="code-keyword">show bgp neighbors 203.0.113.1 advertised-routes</span>
+<span class="code-keyword">show bgp neighbors 203.0.113.1 received-routes</span>
+
+<span class="code-comment">! Route analysis</span>
+<span class="code-keyword">show bgp ipv4 unicast 192.168.1.0/24</span>
+<span class="code-keyword">show bgp ipv4 unicast regexp _65002_</span></code></pre>
+                        </div>
+                    </section>
+
+                    <section id="security" class="section fade-in">
+                        <h2>BGP Security</h2>
+                        <p>BGP security is critical for maintaining network integrity and preventing routing attacks. This section covers essential security measures and best practices for BGP deployments.</p>
+
+                        <h3>Security Fundamentals</h3>
+                        <ul>
+                            <li><strong>Authentication:</strong> Use MD5 or TCP-AO for session authentication</li>
+                            <li><strong>Route Filtering:</strong> Implement strict ingress and egress filtering</li>
+                            <li><strong>RPKI Validation:</strong> Deploy Resource Public Key Infrastructure</li>
+                            <li><strong>Monitoring:</strong> Continuous monitoring for anomalies and attacks</li>
+                        </ul>
+
+                        <h3>RPKI Implementation</h3>
+                        <div class="code-block">
+                            <pre><code><span class="code-comment">! RPKI configuration</span>
+<span class="code-keyword">router bgp</span> <span class="code-number">65001</span>
+ <span class="code-keyword">bgp rpki server</span> <span class="code-string">rpki.example.com</span> <span class="code-keyword">port</span> <span class="code-number">323</span>
+ <span class="code-keyword">bgp bestpath prefix-validate allow-invalid</span>
  
- <span class="code-comment">! Route filtering</span>
- <span class="code-keyword">neighbor</span> <span class="code-string">203.0.113.1</span> <span class="code-keyword">prefix-list</span> <span class="code-string">OUTBOUND-PREFIXES</span> <span class="code-keyword">out</span>
- <span class="code-keyword">neighbor</span> <span class="code-string">203.0.113.1</span> <span class="code-keyword">prefix-list</span> <span class="code-string">INBOUND-PREFIXES</span> <span class="code-keyword">in</span></code></pre>
+ <span class="code-keyword">address-family ipv4</span>
+  <span class="code-keyword">bgp additional-paths select all</span>
+  <span class="code-keyword">bgp additional-paths install</span>
+ <span class="code-keyword">exit-address-family</span></code></pre>
                         </div>
 
-                        <h3>Advanced BGP Features</h3>
-                        <p>Modern BGP deployments leverage sophisticated features like route reflection, confederation, and multi-protocol extensions. These capabilities enable scalable architectures while maintaining routing stability and security.</p>
-                        
-                        <div class="protocol-comparison">
-                            <div class="protocol-card featured">
-                                <h4>BGP-4</h4>
-                                <p>Path-vector protocol with policy-based routing, infinite scalability, and support for complex topologies.</p>
+                        <div class="alert alert-warning">
+                            <strong>Security Note:</strong> Always implement multiple layers of security including authentication, filtering, and monitoring. No single security measure is sufficient for protecting BGP infrastructure.
+                        </div>
+                    </section>
+
+                    <section id="best-practices" class="section fade-in">
+                        <h2>Best Practices</h2>
+                        <p>Following established best practices ensures reliable, secure, and scalable BGP deployments. These recommendations are based on industry standards and operational experience.</p>
+
+                        <h3>Design Principles</h3>
+                        <ol>
+                            <li><strong>Redundancy:</strong> Implement multiple BGP sessions for high availability</li>
+                            <li><strong>Filtering:</strong> Apply strict route filtering policies</li>
+                            <li><strong>Monitoring:</strong> Deploy comprehensive monitoring and alerting</li>
+                            <li><strong>Documentation:</strong> Maintain detailed network documentation</li>
+                            <li><strong>Testing:</strong> Regular testing of failover scenarios</li>
+                        </ol>
+
+                        <h3>Performance Optimization</h3>
+                        <div class="card-grid">
+                            <div class="card">
+                                <h4>Route Reflection</h4>
+                                <p>Use route reflectors to reduce iBGP mesh requirements and improve scalability in large networks.</p>
                             </div>
-                            <div class="protocol-card">
-                                <h4>OSPF</h4>
-                                <p>Link-state protocol optimal for enterprise networks with fast convergence but limited scalability.</p>
+                            <div class="card">
+                                <h4>Confederation</h4>
+                                <p>Implement BGP confederation for very large autonomous systems to improve convergence and reduce complexity.</p>
                             </div>
-                            <div class="protocol-card">
-                                <h4>EIGRP</h4>
-                                <p>Cisco proprietary protocol with advanced metrics but vendor lock-in limitations.</p>
+                            <div class="card">
+                                <h4>Prefix Aggregation</h4>
+                                <p>Aggregate routes where possible to reduce routing table size and improve convergence times.</p>
                             </div>
                         </div>
-                    </div>
 
-                    <div class="section fade-in">
-                        <h2>BGP Troubleshooting Strategies</h2>
-                        <p>BGP troubleshooting requires systematic approaches and deep understanding of the protocol's behavior. Common issues range from simple configuration errors to complex routing loops and policy conflicts.</p>
-                        
-                        <div class="troubleshooting-grid">
-                            <div class="trouble-card">
-                                <h4>🔧 Neighbor Adjacency Issues</h4>
-                                <p>BGP neighbors failing to establish or maintain sessions, often due to configuration mismatches or connectivity problems.</p>
-                                <div class="solution">
-                                    <div class="solution-label">Solution:</div>
-                                    <p>Verify AS numbers, IP addresses, and use <code>show bgp summary</code> to check neighbor states.</p>
-                                </div>
-                            </div>
-                            
-                            <div class="trouble-card">
-                                <h4>⚠️ Route Propagation Problems</h4>
-                                <p>Routes not being advertised or received as expected, causing reachability issues.</p>
-                                <div class="solution">
-                                    <div class="solution-label">Solution:</div>
-                                    <p>Check route-maps, prefix-lists, and use <code>show bgp neighbors X.X.X.X advertised-routes</code>.</p>
-                                </div>
-                            </div>
-                            
-                            <div class="trouble-card">
-                                <h4>🔄 Routing Loops</h4>
-                                <p>Circular routing paths causing packet loss and network instability.</p>
-                                <div class="solution">
-                                    <div class="solution-label">Solution:</div>
-                                    <p>Implement proper AS-path filtering and verify BGP best path selection process.</p>
-                                </div>
-                            </div>
-                            
-                            <div class="trouble-card">
-                                <h4>📊 Performance Issues</h4>
-                                <p>Suboptimal routing decisions leading to increased latency and reduced throughput.</p>
-                                <div class="solution">
-                                    <div class="solution-label">Solution:</div>
-                                    <p>Tune BGP attributes like local preference, MED, and implement traffic engineering.</p>
-                                </div>
-                            </div>
+                        <div class="alert alert-info">
+                            <strong>Pro Tip:</strong> Regular BGP table analysis helps identify opportunities for optimization and potential security issues. Consider implementing automated monitoring tools for continuous assessment.
                         </div>
-                    </div>
-
-                    <div class="section fade-in">
-                        <h2>BGP Security and Best Practices</h2>
-                        <p>BGP security has become increasingly important as networks face sophisticated threats. Route hijacking, prefix hijacking, and man-in-the-middle attacks can have devastating consequences for network operators and their customers.</p>
-                        
-                        <h3>Essential Security Measures</h3>
-                        <p>Implementing BGP security requires multiple layers of protection, from basic authentication to advanced cryptographic validation. Route filtering, prefix validation, and RPKI (Resource Public Key Infrastructure) form the foundation of modern BGP security.</p>
-                        
-                        <div class="interactive-toggle" onclick="toggleContent('rpki')">RPKI Implementation</div>
-                        <div class="interactive-toggle" onclick="toggleContent('filtering')">Route Filtering</div>
-                        <div class="interactive-toggle" onclick="toggleContent('monitoring')">Monitoring & Alerting</div>
-                        
-                        <div id="security-content" style="margin-top: 2rem; padding: 1.5rem; background: rgba(255,255,255,0.05); border-radius: 10px; display: none;">
-                            <p>Select a security measure above to learn more about implementation strategies.</p>
-                        </div>
-                    </div>
-
-                    <div class="section fade-in">
-                        <h2>The Future of BGP</h2>
-                        <p>As the Internet continues to evolve, BGP adapts to meet new challenges. IPv6 adoption, cloud computing, and edge computing are driving innovations in BGP implementations and extensions.</p>
-                        
-                        <p>Emerging technologies like segment routing, network slicing, and AI-driven route optimization are being integrated with BGP to create more intelligent and responsive networks. The protocol's flexibility ensures it will remain relevant for decades to come.</p>
-                    </div>
+                    </section>
                 </div>
 
                 <div class="sidebar">
                     <div class="sidebar-card fade-in">
                         <h3>BGP Quick Reference</h3>
-                        <p><strong>Port:</strong> TCP 179</p>
-                        <p><strong>Algorithm:</strong> Path Vector</p>
-                        <p><strong>Metric:</strong> Path Attributes</p>
-                        <p><strong>Updates:</strong> Incremental</p>
-                        <p><strong>Convergence:</strong> Slow but stable</p>
-                    </div>
-
-                    <div class="sidebar-card fade-in">
-                        <h3>Path Selection Criteria</h3>
-                        <ol style="color: rgba(255,255,255,0.9); margin-left: 1.5rem;">
-                            <li>Weight (Cisco)</li>
-                            <li>Local Preference</li>
-                            <li>Local Origination</li>
-                            <li>AS Path Length</li>
-                            <li>Origin Code</li>
-                            <li>MED</li>
-                            <li>eBGP over iBGP</li>
-                            <li>Lowest IGP Metric</li>
-                        </ol>
-                    </div>
-
-                    <div class="sidebar-card fade-in">
-                        <h3>Essential Commands</h3>
-                        <div style="font-family: monospace; font-size: 0.9rem; color: rgba(255,255,255,0.9);">
-                            <p>show bgp summary</p>
-                            <p>show bgp neighbors</p>
-                            <p>show bgp table</p>
-                            <p>clear bgp *</p>
-                            <p>debug bgp updates</p>
-                        </div>
-                    </div>
-
-                    <div class="sidebar-card fade-in">
-                        <h3>Industry Stats</h3>
-                        <p>📊 <strong>90,000+</strong> ASNs globally</p>
-                        <p>🌐 <strong>950,000+</strong> IPv4 prefixes</p>
-                        <p>📈 <strong>15%</strong> annual growth</p>
-                        <p>⚡ <strong>180 sec</strong> avg convergence</p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="cta-section fade-in">
-                <h2 style="margin-bottom: 1rem;">Ready to Master BGP?</h2>
-                <p style="margin-bottom: 2rem; color: rgba(255,255,255,0.9);">Join thousands of network engineers who have advanced their careers with advanced BGP knowledge.</p>
-                <a href="#" class="cta-button">Start Learning BGP</a>
-            </div>
-        </div>
-    </main>
-
-    <script>
-        // Interactive AS network
-        document.querySelectorAll('.bgp-as').forEach(asElement => {
-            asElement.addEventListener('click', function() {
-                const asNumber = this.getAttribute('data-as');
-                const asInfo = {
-                    '65001': 'Tier 1 ISP - Provides transit to multiple networks, maintains global routing table with 950,000+ prefixes',
-                    '65002': 'Tier 2 ISP - Regional provider with selective transit agreements, focuses on specific geographic areas',
-                    '65003': 'Enterprise Network - Multi-homed for redundancy, implements traffic engineering for optimal performance'
-                };
-                
-                showNotification(`AS ${asNumber}`, asInfo[asNumber]);
-            });
-        });
-
-        // Interactive security toggles
-        const securityContent = {
-            'rpki': 'RPKI (Resource Public Key Infrastructure) provides cryptographic validation of BGP route announcements. Implement ROA (Route Origin Authorization) objects to validate prefix origins and prevent route hijacking.',
-            'filtering': 'Implement strict inbound and outbound filtering using prefix-lists and route-maps. Filter bogon networks, limit prefix lengths, and validate customer announcements against IRR databases.',
-            'monitoring': 'Deploy continuous monitoring for BGP sessions, route changes, and anomalies. Use tools like BGPmon, RIPE RIS, or RouteViews for real-time visibility into global routing changes.'
-        };
-
-        function toggleContent(type) {
-            const content = document.getElementById('security-content');
-            const toggles = document.querySelectorAll('.interactive-toggle');
-            
-            // Remove active class from all toggles
-            toggles.forEach(toggle => toggle.classList.remove('active'));
-            
-            // Add active class to clicked toggle
-            event.
+                        <p><strong>Protocol:</strong> TCP Port 179</p>
+                        <p><strong>Type:</strong
